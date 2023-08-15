@@ -158,7 +158,28 @@ public class TrybeGamesController
     public void AddGame()
     {
         // implementar
-        Console.WriteLine("Ainda não é possível realizar essa funcionalidade!");
+        Console.WriteLine("Novo jogo:");
+        string name = Console.ReadLine();
+
+        Console.WriteLine("Data de lançamento:");
+        DateTime release = Convert.ToDateTime(Console.ReadLine());
+
+        Console.WriteLine("Tipo do jogo:");
+        GameType gameType = (GameType)Enum.Parse(typeof(GameType), Console.ReadLine());
+
+
+        int id = database.Games.Count + 1;
+
+        var newGame = new Game
+        {
+            Id = id,
+            Name = name,
+            ReleaseDate = release,
+            GameType = gameType,
+
+        };
+
+        database.Games.Add(newGame);
     }
 
     public void ChangeGameStudio(Game game)
