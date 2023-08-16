@@ -162,7 +162,7 @@ public class TrybeGamesController
         string name = Console.ReadLine();
 
         Console.WriteLine("Data de lançamento:");
-        DateTime release = Convert.ToDateTime(Console.ReadLine());
+        DateTime release = Convert.ToDateTime(Console.ReadLine(), new CultureInfo("pt-BR"));
 
         Console.WriteLine("Tipo do jogo:");
         GameType gameType = (GameType)Enum.Parse(typeof(GameType), Console.ReadLine());
